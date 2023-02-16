@@ -6,7 +6,7 @@
 /*   By: mbalayan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 21:55:57 by mbalayan          #+#    #+#             */
-/*   Updated: 2023/02/14 21:57:06 by mbalayan         ###   ########.fr       */
+/*   Updated: 2023/02/17 01:25:37 by mbalayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,25 @@ int	ft_putnbr(int number)
 	len += ft_putstr(num);
 	free(num);
 	return (len);
+}
+char	*u_int_char(unsigned int n)
+{
+	char	*str;
+	int		len;
+	unsigned int tmp;
+
+	tmp = n;
+	len = 1;
+	while (tmp /= 10)
+		len++;
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!str)
+		return (NULL);
+	str[len] = '\0';
+	while (len--)
+	{
+		str[len] = n % 10 + '0';
+		n /= 10;
+	}
+	return (str);
 }

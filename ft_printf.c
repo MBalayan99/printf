@@ -24,9 +24,9 @@ int	ft_check(char c, va_list macro)
 		return (ft_putpointer(va_arg(macro, void *)) + 2);
 	}
 	else if (c == 'd' || c == 'i')
-		return (ft_putnbr_u(va_arg(macro, unsigned int)));
+		return (ft_putnbr(va_arg(macro, int)));
 	else if (c == 'u')
-		return (ft_uperlower(va_arg(macro, void *), "0123456789"));
+		return (ft_putnbr_u(va_arg(macro, unsigned int)));
 	else if (c == '%')
 		return (ft_putchar('%'));
 	else if (c == 'x')
@@ -34,15 +34,16 @@ int	ft_check(char c, va_list macro)
 	else if (c == 'X')
 		return (ft_uperlower(va_arg(macro, void *), "0123456789ABCDEF"));
 	return (0);
-
 }
+
+
 int	ft_putnbr_u(unsigned  int number)
 {
 	char	*num;
 	int		len;
 
 	len = 0;
-	num = ft_itoa(number);
+	num = u_int_char(number);
 	len += ft_putstr(num);
 	free(num);
 	return (len);
