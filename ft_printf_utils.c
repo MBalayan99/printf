@@ -51,3 +51,24 @@ int	ft_putnbr(int number)
 	free(num);
 	return (len);
 }
+char	*u_int_char(unsigned int n)
+{
+	char	*str;
+	int		len;
+	unsigned int tmp;
+
+	tmp = n;
+	len = 1;
+	while (tmp /= 10)
+		len++;
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!str)
+		return (NULL);
+	str[len] = '\0';
+	while (len--)
+	{
+		str[len] = n % 10 + '0';
+		n /= 10;
+	}
+	return (str);
+}
