@@ -1,7 +1,10 @@
 #include "ft_printf.h"
+#include <stdio.h>
+#include <limits.h>
 int main()
 {
 	//int a = 5;
 	//int *p =&a;
-	ft_printf("%u", 55);
+	printf(" %x\n ", LONG_MIN);
+	ft_printf(" %x\n ", LONG_MIN);
 }

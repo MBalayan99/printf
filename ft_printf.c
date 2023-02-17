@@ -30,9 +30,9 @@ int	ft_check(char c, va_list macro)
 	else if (c == '%')
 		return (ft_putchar('%'));
 	else if (c == 'x')
-		return (ft_uperlower(va_arg(macro, void *), "0123456789abcdef"));
+    	return (ft_putnbr_base(va_arg(macro, unsigned int), "0123456789abcdef"));
 	else if (c == 'X')
-		return (ft_uperlower(va_arg(macro, void *), "0123456789ABCDEF"));
+		return (ft_putnbr_base(va_arg(macro, unsigned int), "0123456789ABCDEF"));
 	return (0);
 }
 
@@ -48,11 +48,11 @@ int	ft_putnbr_u(unsigned  int number)
 	free(num);
 	return (len);
 }
-
-int	ft_uperlower(void *ptr, char *s)
+/*
+  long int	ft_uperlower(void *ptr, char *s)
 {
-	unsigned long long	ret;
-	int				res;
+	unsigned long 	ret;
+	unsigned  long int				res;
 
 	ret = (unsigned long)ptr;
 	res = 0;
@@ -60,7 +60,9 @@ int	ft_uperlower(void *ptr, char *s)
 		res += ft_putpointer((void *)(ret / 16));
 	res += ft_putchar(s[ret % 16]);
 	return (res);
+	
 }
+*/
 
 int	ft_printf(const char *s, ...)
 {

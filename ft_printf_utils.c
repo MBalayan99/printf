@@ -29,10 +29,10 @@ int	ft_putchar(char c)
 
 int	ft_putpointer(void *ptr)
 {
-	unsigned long	ret;
+	unsigned long 	ret;
 	int				res;
 
-	ret = (unsigned long)ptr;
+	ret = (unsigned long long)ptr;
 	res = 0;
 	if (ret > 15)
 		res += ft_putpointer((void *)(ret / 16));
@@ -71,4 +71,13 @@ char	*u_int_char(unsigned int n)
 		n /= 10;
 	}
 	return (str);
+}
+
+int ft_putnbr_base(unsigned int num, char *base)
+{
+    int len = 0;
+    if (num >= (unsigned int)ft_strlen(base))
+        len += ft_putnbr_base(num / ft_strlen(base), base);
+    len += ft_putchar(base[num % ft_strlen(base)]);
+    return (len);
 }
