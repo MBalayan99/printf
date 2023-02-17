@@ -28,8 +28,11 @@ int	    ft_check(char c, va_list macro);
 int	    ft_putnbr_u(unsigned int n);
 int	    ft_putnbr(int number);
 char	*u_int_char(unsigned int n);
+<<<<<<< HEAD
 long int    ft_uperlower(void *ptr, char *s);
 int ft_putnbr_base(unsigned int num, char *base);
 
+=======
+>>>>>>> fa13e9dad99c78dcd401b9fa02249dc665a9b0a8
 
 #endif

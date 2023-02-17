@@ -6,7 +6,7 @@
 /*   By: mbalayan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 21:55:57 by mbalayan          #+#    #+#             */
-/*   Updated: 2023/02/14 21:57:06 by mbalayan         ###   ########.fr       */
+/*   Updated: 2023/02/17 01:25:37 by mbalayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ char	*u_int_char(unsigned int n)
 	}
 	return (str);
 }
+<<<<<<< HEAD
 
 int ft_putnbr_base(unsigned int num, char *base)
 {
@@ -81,3 +82,5 @@ int ft_putnbr_base(unsigned int num, char *base)
     len += ft_putchar(base[num % ft_strlen(base)]);
     return (len);
 }
+=======
+>>>>>>> fa13e9dad99c78dcd401b9fa02249dc665a9b0a8
