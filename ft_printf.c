@@ -6,7 +6,7 @@
 /*   By: mbalayan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 21:50:57 by mbalayan          #+#    #+#             */
-/*   Updated: 2023/02/14 21:55:40 by mbalayan         ###   ########.fr       */
+/*   Updated: 2023/02/18 22:17:32 by mbalayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,15 @@ int	ft_check(char c, va_list macro)
 	else if (c == '%')
 		return (ft_putchar('%'));
 	else if (c == 'x')
-    	return (ft_putnbr_base(va_arg(macro, unsigned int), "0123456789abcdef"));
+		return (ft_putnbr_base(
+				va_arg(macro, unsigned int), "0123456789abcdef"));
 	else if (c == 'X')
-		return (ft_putnbr_base(va_arg(macro, unsigned int), "0123456789ABCDEF"));
+		return (ft_putnbr_base(
+				va_arg(macro, unsigned int), "0123456789ABCDEF"));
 	return (0);
 }
 
-
-int	ft_putnbr_u(unsigned  int number)
+int	ft_putnbr_u(unsigned int number)
 {
 	char	*num;
 	int		len;
@@ -48,21 +49,6 @@ int	ft_putnbr_u(unsigned  int number)
 	free(num);
 	return (len);
 }
-/*
-  long int	ft_uperlower(void *ptr, char *s)
-{
-	unsigned long 	ret;
-	unsigned  long int				res;
-
-	ret = (unsigned long)ptr;
-	res = 0;
-	if (ret > 15)
-		res += ft_putpointer((void *)(ret / 16));
-	res += ft_putchar(s[ret % 16]);
-	return (res);
-	
-}
-*/
 
 int	ft_printf(const char *s, ...)
 {
@@ -85,5 +71,16 @@ int	ft_printf(const char *s, ...)
 		i++;
 	}
 	va_end(macro);
+	return (len);
+}
+
+int	ft_putnbr_base(unsigned int num, char *base)
+{
+	int	len;
+
+	len = 0;
+	if (num >= (unsigned int)ft_strlen(base))
+		len += ft_putnbr_base(num / ft_strlen(base), base);
+	len += ft_putchar(base[num % ft_strlen(base)]);
 	return (len);
 }

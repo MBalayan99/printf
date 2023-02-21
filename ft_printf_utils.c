@@ -6,7 +6,7 @@
 /*   By: mbalayan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 21:55:57 by mbalayan          #+#    #+#             */
-/*   Updated: 2023/02/17 01:25:37 by mbalayan         ###   ########.fr       */
+/*   Updated: 2023/02/18 22:43:36 by mbalayan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_putchar(char c)
 
 int	ft_putpointer(void *ptr)
 {
-	unsigned long 	ret;
+	unsigned long	ret;
 	int				res;
 
 	ret = (unsigned long long)ptr;
@@ -51,16 +51,20 @@ int	ft_putnbr(int number)
 	free(num);
 	return (len);
 }
+
 char	*u_int_char(unsigned int n)
 {
-	char	*str;
-	int		len;
-	unsigned int tmp;
+	char			*str;
+	int				len;
+	unsigned int	tmp;
 
 	tmp = n;
 	len = 1;
-	while (tmp /= 10)
+	while (tmp >= 10)
+	{
+		tmp /= 10;
 		len++;
+	}
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (NULL);
@@ -72,15 +76,3 @@ char	*u_int_char(unsigned int n)
 	}
 	return (str);
 }
-<<<<<<< HEAD
-
-int ft_putnbr_base(unsigned int num, char *base)
-{
-    int len = 0;
-    if (num >= (unsigned int)ft_strlen(base))
-        len += ft_putnbr_base(num / ft_strlen(base), base);
-    len += ft_putchar(base[num % ft_strlen(base)]);
-    return (len);
-}
-=======
->>>>>>> fa13e9dad99c78dcd401b9fa02249dc665a9b0a8
